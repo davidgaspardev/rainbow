@@ -31,6 +31,24 @@ export default class App extends Component {
     );
   }
 
+
+  componentDidMount() {
+
+    setInterval(() => {
+
+      this.setState(previousState => {
+
+        let lastColor        = previousState.colors.slice(-1);
+        let withoutLastColor = previousState.colors.slice(0, -1);
+
+        return { colors: lastColor.concat(withoutLastColor) };
+
+      });
+
+    }, 1000 );
+
+  }
+
 }
 
 const styles = StyleSheet.create({
