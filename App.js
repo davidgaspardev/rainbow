@@ -8,13 +8,13 @@ export default class App extends Component {
 
     this.state = {
       colors: [
-        'rgb(255,  0,  0)',
-        'rgb(255,127,  0)',
-        'rgb(255,255,  0)',
-        'rgb(  0,255,  0)',
-        'rgb(  0,  0,255)',
-        'rgb( 75,  0,130)',
-        'rgb(143,  0,255)'
+        'red',
+        'orange',
+        'yellow',
+        'green',
+        'blue',
+        'indigo',
+        'violet'
       ]
     }
 
@@ -22,7 +22,7 @@ export default class App extends Component {
 
   render() {
 
-    const colorsSeven = this.state.colors.map( color => <View key={color} style={{ flex: 1, backgroundColor: color }} />)
+    const colorsSeven = this.state.colors.map( color => <View key={color} style={[ styles.container, styles[`${color}Bg`] ]} />)
 
     return (
       <View style={styles.container}>
@@ -55,5 +55,27 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
     flex: 1
+  },
+  redBg: {
+    backgroundColor: 'rgb(255,  0,  0)'
+  },
+  orangeBg: {
+    backgroundColor: 'rgb(255,127,  0)'
+  },
+  yellowBg: {
+    backgroundColor: 'rgb(255,255,  0)'
+  },
+  greenBg: {
+    backgroundColor: 'rgb(  0,255,  0)'
+  },
+  blueBg: {
+    backgroundColor: 'rgb(  0,  0,255)'
+  },
+  indigoBg: {
+    backgroundColor: 'rgb( 75,  0,130)'
+  },
+  violetBg: {
+    backgroundColor: 'rgb(143,  0,255)'
   }
+
 });
